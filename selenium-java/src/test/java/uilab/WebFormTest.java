@@ -1,11 +1,15 @@
 package uilab;
 
-import java.io.File;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.io.File;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 class WebFormTest extends BaseTest {
@@ -35,6 +39,16 @@ class WebFormTest extends BaseTest {
         driver.findElement(By.name("my-datalist")).sendKeys("Seattle");
         String file = new File("pom.xml").getAbsolutePath();
         driver.findElement(By.name("my-file")).sendKeys(file);
+
+        // checkboxes, radio buttons and the date
+        WebElement second = driver.findElement(By.id("my-check-2"));
+        second.click();
+        assertTrue(second.isSelected());
+        driver.findElement(By.id("my-radio-2")).click();
+        assertFalse(driver.findElement(By.id("my-radio-1")).isSelected());
+        WebElement date = driver.findElement(By.name("my-date"));
+        date.sendKeys("11/05/2026");
+        date.sendKeys(Keys.ESCAPE);
 
         // Add the next part above this line.
     }
