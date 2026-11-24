@@ -52,7 +52,7 @@ class WebFormTest extends BaseTest {
         // submit, then check the page that follows
         driver.findElement(By.cssSelector("button[type=submit]")).click();
         wait.until(ExpectedConditions.titleIs("Web form - target page"));
-        assertEquals("Received!",
+        assertEquals("Received",
                 driver.findElement(By.id("message")).getText());
 
         // Add the next part above this line.
