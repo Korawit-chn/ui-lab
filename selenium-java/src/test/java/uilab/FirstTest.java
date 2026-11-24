@@ -16,7 +16,7 @@ class FirstTest {
         try {
             driver.get(
                     "https://www.selenium.dev/selenium/web/web-form.html");
-            assertEquals("Web Form", driver.getTitle());
+            assertEquals("Web form", driver.getTitle());
         } finally {
             driver.quit();
         }
